@@ -62,8 +62,9 @@ public class MainActivity extends AppCompatActivity {
             textView2.setText("Durum: " + jsonCondition.getString("text"));
             textView3.setText("sıcaklık: " + jsonCurrent.getString("temp_c"));
             textView4.setText("hissedilen sıcaklık: " + jsonCurrent.getString("feelslike_c"));
-            //Picasso.with(this).load()
-            Picasso.with(this).load(jsonCondition.getString("icon")).into(icon);
+            String weatherIcon = jsonCondition.getString("icon");
+            System.out.println(weatherIcon);
+            Picasso.with(this).load("https:" + weatherIcon).into(icon);
 
         } catch (JSONException e) {
             e.printStackTrace();
